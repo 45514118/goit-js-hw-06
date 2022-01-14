@@ -5,10 +5,15 @@
 // 4. После чего вставит все `<li>` за одну операцию в список `ul.ingredients`.
 
 const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
-const unorderedList = document.querySelector('#ingredients');
-const ingredientsList = ingredients.map(ingredient => {
-  const item = document.createElement('li');
-  item.textContent = ingredient;
-  item.classList.add('item');
-  unorderedList.append(item);
-});
+const list = document.querySelector('#ingredients');
+const fillList = ingredients => {
+  return ingredients.map(ingredient => {
+    const filler = document.createElement('li');
+    filler.textContent = ingredient;
+    filler.classList.add('item');
+    return filler;
+  });
+};
+const fillers = fillList(ingredients);
+list.append(...fillers);
+console.log(list);
